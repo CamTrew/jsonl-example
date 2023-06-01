@@ -1,0 +1,15 @@
+{
+    "name": "John Smith",
+    "age": 30,
+    "address": "London, England"
+}
+{
+    "name": "Michael Scott",
+    "age": 40,
+    "address": "New York, USA"
+}
+{
+    "name": "Brian Murphy",
+    "age": 50,
+    "address": "Dublin, Ireland"
+}
