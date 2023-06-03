@@ -15,7 +15,7 @@ type Person struct {
 	Address string `json:"address"`
 }
 
-func readJSONLFile(file io.Reader) ([]Person, error) {
+func peopleFromFile(file io.Reader) ([]Person, error) {
 	var people []Person
 
 	decoder := json.NewDecoder(file)
@@ -41,7 +41,7 @@ func main() {
 	defer file.Close()
 
 	// We can pass in any file which implements io.Reader e.g. multipart.File or os.File
-	people, err := readJSONLFile(file)
+	people, err := peopleFromFile(file)
 	if err != nil {
 		log.Fatal(err)
 	}
