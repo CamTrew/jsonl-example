@@ -15,22 +15,20 @@ type Person struct {
 	Address string `json:"address"`
 }
 
-func peopleFromFile(file io.Reader) ([]Person, error) {
-	var people []Person
-
+func peopleFromFile(file io.Reader) error {
 	decoder := json.NewDecoder(file)
 	// Each iteration will be the next JSON Object
 	for decoder.More() {
 		var person Person
-
 		if err := decoder.Decode(&person); err != nil {
-			return nil, err
+			return err
 		}
 
-		people = append(people, person)
+		// We can now process each json object individually without having to load the entire file at once
+		fmt.Println(person.Name, person.Age, person.Address)
 	}
 
-	return people, nil
+	return nil
 }
 
 func main() {
@@ -41,12 +39,7 @@ func main() {
 	defer file.Close()
 
 	// We can pass in any file which implements io.Reader e.g. multipart.File or os.File
-	people, err := peopleFromFile(file)
-	if err != nil {
+	if err = peopleFromFile(file); err != nil {
 		log.Fatal(err)
-	}
-
-	for _, person := range people {
-		fmt.Println(person.Name, person.Age, person.Address)
 	}
 }
