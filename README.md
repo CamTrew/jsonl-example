@@ -7,7 +7,7 @@ This GoLang example showcases how to read a JSONL (JSON Lines) file and print de
 1. Clone the repository:
 
 ```
-$ clone https://github.com/thegodev/jsonl-example.git
+$ clone https://github.com/CamTrew/jsonl-example.git
 ```
 
 2. Navigate to the project directory:
